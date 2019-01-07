@@ -51,6 +51,11 @@ $commandList = [
     new Module\RegisterCommand('module:register'),
 ];
 
+if (file_exists($cwd . '/config/commands.php')){
+    $userCommandList = require $cwd . '/config/commands.php';
+    $commandList = array_merge($commandList, $userCommandList ?? []);
+}
+
 if (file_exists($cwd . '/config/container.php')) {
     $commandList[] = new CreateHandler\CreateHandlerCommand('action:create');
     $commandList[] = new CreateHandler\CreateHandlerCommand('handler:create');
