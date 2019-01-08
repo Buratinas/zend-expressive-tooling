@@ -61,7 +61,7 @@ if (file_exists($cwd . '/config/container.php')) {
     $commandList[] = new CreateHandler\CreateHandlerCommand('handler:create');
 }
 
-$version = strstr(Versions::getVersion('zendframework/zend-expressive-tooling'), '@', true);
+$version = strstr(Versions::getVersion('buratinas/zend-expressive-tooling'), '@', true);
 
 $application = new Application('expressive', $version);
 $application->addCommands($commandList);
